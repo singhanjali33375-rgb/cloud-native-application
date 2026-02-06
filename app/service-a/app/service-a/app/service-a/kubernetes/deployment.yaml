@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-native-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloud-native
+  template:
+    metadata:
+      labels:
+        app: cloud-native
+    spec:
+      containers:
+      - name: app
+        image: your-dockerhub/cloud-native-app
+        ports:
+        - containerPort: 3000
